@@ -25,7 +25,26 @@ export default defineComponent({
   </header>
 
   <main>
-
+    <div class="col landscape">
+      <h1>Edinburgh's Landscape is one of a kind</h1>
+      <h3>Being a coastal city, Edinburgh has access to the sea, while also featuring hills, beautiful architecture and more!</h3>
+    </div>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <img class="landscape-thumbnails" alt="Arthur's seat in Edinburgh" src="@/assets/img/arthurs-seat.jpg">
+      </div>
+      <div class="col">
+        <img class="landscape-thumbnails" alt="" src="@/assets/img/arthurs-seat.jpg">
+      </div>
+      <div class="col">
+        <img class="landscape-thumbnails" alt="" src="@/assets/img/arthurs-seat.jpg">
+      </div>
+      <div class="col">
+        <img class="landscape-thumbnails" alt="" src="@/assets/img/arthurs-seat.jpg">
+      </div>
+    </div>
+    </div>
   </main>
 </template>
 
@@ -41,6 +60,13 @@ export default defineComponent({
   font-size: 110px;
   color: white;
   text-shadow: 3px 3px black;
+}
+.landscape {
+  margin-top: 20px;
+  text-align: center;
+}
+.landscape-thumbnails {
+  width: 250px;
 }
 .v-enter-active,
 .v-leave-active {
