@@ -1,6 +1,7 @@
 <script>
 import {defineComponent} from "vue";
-import Navbar from "@/components/navbar.vue";
+import navbar from "@/components/navbar.vue";
+import footer_main from "@/components/footer_main.vue";
 
 export default defineComponent({
   data() {
@@ -8,7 +9,7 @@ export default defineComponent({
       show: true
     }
   },
-  components: {Navbar}
+  components: {navbar, footer_main}
 },)
 
 </script>
@@ -45,6 +46,7 @@ export default defineComponent({
       </div>
     </div>
     </div>
+    <footer_main />
   </main>
 </template>
 
