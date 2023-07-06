@@ -26,7 +26,7 @@ export default defineComponent({
             <a class="nav-link" href="#">History</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Tourism</a>
+            <a class="nav-link" href="#">Tourism</a>
           </li>
         </ul>
       </div>

@@ -70,6 +70,9 @@ export default defineComponent({
 .landscape-thumbnails {
   width: 250px;
 }
+.landscape-thumbnails:hover {
+  opacity: 0.5;
+}
 .v-enter-active,
 .v-leave-active {
   transition: opacity 0.5s ease-in;
