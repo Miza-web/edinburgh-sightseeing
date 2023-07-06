@@ -4,9 +4,10 @@ import navbar from "@/components/navbar.vue";
 import footer_main from "@/components/footer_main.vue";
 import header_main from "@/components/Header_main.vue";
 import landscape from "@/components/landscape.vue";
+import history from "@/components/History.vue";
 
 export default defineComponent({
-  components: {navbar, footer_main, header_main, landscape}
+  components: {navbar, footer_main, header_main, landscape, history}
 },)
 
 </script>
