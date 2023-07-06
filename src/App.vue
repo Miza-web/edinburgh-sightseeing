@@ -6,7 +6,8 @@ import footer_main from "@/components/footer_main.vue";
 export default defineComponent({
   data() {
     return {
-      show: true
+      show: true,
+      hover: false
     }
   },
   components: {navbar, footer_main}
@@ -32,17 +33,17 @@ export default defineComponent({
     </div>
   <div class="container">
     <div class="row">
-      <div class="col">
+      <div class="col itemsContainer" @mouseover="hover = true" @mouseleave="hover = false">
+        <div class="icon_div" v-if="hover"><img class="fs_icon" src="./components/icons/fullscreen_icon.png"/></div>
         <img class="landscape-thumbnails" alt="Arthur's seat in Edinburgh" src="@/assets/img/arthurs-seat.jpg">
       </div>
-      <div class="col">
-        <img class="landscape-thumbnails" alt="" src="@/assets/img/arthurs-seat.jpg">
+      <div class="col itemsContainer" @mouseover="hover = true" @mouseleave="hover = false">
+        <div class="icon_div" v-if="hover"><img class="fs_icon" src="./components/icons/fullscreen_icon.png"/></div>
+        <img class="landscape-thumbnails" alt="Arthur's seat in Edinburgh" src="@/assets/img/arthurs-seat.jpg">
       </div>
-      <div class="col">
-        <img class="landscape-thumbnails" alt="" src="@/assets/img/arthurs-seat.jpg">
-      </div>
-      <div class="col">
-        <img class="landscape-thumbnails" alt="" src="@/assets/img/arthurs-seat.jpg">
+      <div class="col itemsContainer" @mouseover="hover = true" @mouseleave="hover = false">
+        <div class="icon_div" v-if="hover"><img class="fs_icon" src="./components/icons/fullscreen_icon.png"/></div>
+        <img class="landscape-thumbnails" alt="Arthur's seat in Edinburgh" src="@/assets/img/arthurs-seat.jpg">
       </div>
     </div>
     </div>
@@ -68,10 +69,26 @@ export default defineComponent({
   text-align: center;
 }
 .landscape-thumbnails {
-  width: 250px;
+  width: 330px;
 }
 .landscape-thumbnails:hover {
   opacity: 0.5;
+  border: 1px solid black;
+}
+.itemsContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.itemsContainer:hover .icon_div{display:block}
+.icon_div {
+  position: absolute;
+  display: none;
+  width: 50px;
+}
+.fs_icon {
+  width: 75px;
 }
 .v-enter-active,
 .v-leave-active {
