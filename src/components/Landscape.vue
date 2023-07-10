@@ -4,10 +4,32 @@ import {defineComponent} from "vue";
 export default defineComponent({
   data(){
     return {
-      hover: false
+      hover: false,
+      modal : {
+        title: "",
+        description: "",
+        location: "",
+        img: "",
+        open: false
+      }
     }
   },
-  name: "landscape",
+  methods: {
+    openModal(e){
+      if (e.target.className === "close") {
+        this.modal.open = !this.modal.open;
+        this.$refs.modal.style.display = !this.modal.open ? "none" : "block";
+        return;
+      }
+      this.modal.open = !this.modal.open;
+      this.$refs.modal.style.display = !this.modal.open ? "none" : "block";
+      this.modal.title = e.currentTarget.getElementsByClassName("modalTitle")[0].innerHTML;
+      this.modal.description = e.currentTarget.getElementsByClassName("modalDescription")[0].innerHTML;
+      this.modal.location = e.currentTarget.getElementsByClassName("modalLocation")[0].innerHTML;
+      this.modal.img = e.currentTarget.getElementsByClassName("modalImg")[0].src;
+    }
+  },
+  name: "landscape"
 });
 </script>
 <template>
@@ -17,19 +39,43 @@ export default defineComponent({
     </div>
   <div class="container">
     <div class="row">
-      <div class="col itemsContainer" @mouseover="hover = true" @mouseleave="hover = false">
+      <div class="col itemsContainer" @mouseover="hover = true" @mouseleave="hover = false" @click="openModal">
         <div class="icon_div" v-if="hover"><img class="fs_icon" src="../components/icons/fullscreen_icon.png"/></div>
-        <img class="landscape-thumbnails" alt="Arthur's seat in Edinburgh" src="@/assets/img/arthurs-seat.jpg">
+        <img class="landscape-thumbnails modalImg" alt="Arthur's seat in Edinburgh" src="@/assets/img/arthurs-seat.jpg">
+        <div class="modal_desc">
+        <h1 class="modalTitle">Arthur's Seat</h1>
+        <h3 class="modalDescription">Description placeholder</h3>
+        <div class="modalLocation">location</div>
+        </div>
       </div>
-      <div class="col itemsContainer" @mouseover="hover = true" @mouseleave="hover = false">
+      <div class="col itemsContainer" @mouseover="hover = true" @mouseleave="hover = false" @click="openModal">
         <div class="icon_div" v-if="hover"><img class="fs_icon" src="../components/icons/fullscreen_icon.png"/></div>
-        <img class="landscape-thumbnails" alt="Arthur's seat in Edinburgh" src="@/assets/img/arthurs-seat.jpg">
+        <img class="landscape-thumbnails modalImg" alt="Arthur's seat in Edinburgh" src="@/assets/img/arthurs-seat.jpg">
+        <div class="modal_desc">
+        <h1 class="modalTitle">Portobello Beach</h1>
+        <h3 class="modalDescription">Description placeholder</h3>
+        <div class="modalLocation">location</div>
+        </div>
       </div>
-      <div class="col itemsContainer" @mouseover="hover = true" @mouseleave="hover = false">
+      <div class="col itemsContainer" @mouseover="hover = true" @mouseleave="hover = false" @click="openModal">
         <div class="icon_div" v-if="hover"><img class="fs_icon" src="../components/icons/fullscreen_icon.png"/></div>
-        <img class="landscape-thumbnails" alt="Arthur's seat in Edinburgh" src="@/assets/img/arthurs-seat.jpg">
+        <img class="landscape-thumbnails modalImg" alt="Arthur's seat in Edinburgh" src="@/assets/img/arthurs-seat.jpg">
+        <div class="modal_desc">
+        <h1 class="modalTitle">Title Placeholder</h1>
+        <h3 class="modalDescription">Description placeholder</h3>
+        <div class="modalLocation">location</div>
+        </div>
       </div>
     </div>
+    <div class="modal" ref="modal">
+      <div class="modal-content">
+        <span class="close" @click="openModal">&times;</span>
+        <img class="modal-img" alt="Arthur's seat in Edinburgh" :src="modal.img">
+        <h1>{{ this.modal.title }}</h1>
+        <h3>{{ this.modal.description }}</h3>
+        <div class="modalLocation">{{ this.modal.location }}</div>
+      </div>
+      </div>
     </div>
 </template>
 <style scoped>
@@ -67,5 +113,8 @@ export default defineComponent({
 .v-enter-from,
 .v-leave-to {
   opacity: 0;
+}
+.modal_desc {
+  display: none;
 }
 </style>
