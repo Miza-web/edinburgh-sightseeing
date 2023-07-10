@@ -16,13 +16,11 @@ export default defineComponent({
   },
   methods: {
     openModal(e){
-      if (e.target.className === "close") {
-        this.modal.open = !this.modal.open;
-        this.$refs.modal.style.display = !this.modal.open ? "none" : "block";
-        return;
-      }
       this.modal.open = !this.modal.open;
       this.$refs.modal.style.display = !this.modal.open ? "none" : "block";
+      if (e.target.className === "close") {
+        return;
+      }
       this.modal.title = e.currentTarget.getElementsByClassName("modalTitle")[0].innerHTML;
       this.modal.description = e.currentTarget.getElementsByClassName("modalDescription")[0].innerHTML;
       this.modal.location = e.currentTarget.getElementsByClassName("modalLocation")[0].innerHTML;
